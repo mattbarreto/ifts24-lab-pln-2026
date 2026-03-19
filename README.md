@@ -5,7 +5,7 @@
 **Prof. Matías Barreto** — Especialista en Nuevos Medios e Interactividad
 matiasbarreto@ifts24.edu.ar
 
-*Lenguaje, Algoritmos y Construcción del Presente*
+_Lenguaje, Algoritmos y Construcción del Presente_
 
 ---
 
@@ -49,11 +49,13 @@ python -m venv .venv
 ### 3. Activar el entorno virtual
 
 **Windows (PowerShell):**
+
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
 
 **Windows (Git Bash / CMD):**
+
 ```bash
 .venv\Scripts\activate
 ```
@@ -76,7 +78,7 @@ playwright install
 ### 6. Instalar componentes de Scrapling
 
 ```bash
-scrapling install
+pip scrapling install
 ```
 
 ### 7. Descargar recursos de NLTK
