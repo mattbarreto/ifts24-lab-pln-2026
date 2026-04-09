@@ -9,15 +9,15 @@ _Lenguaje, Algoritmos y Construcción del Presente_
 
 ---
 
-## Qué es este repositorio
+## 📖 Qué es este repositorio
+ 
+ Este repositorio contiene los notebooks de laboratorio de la materia. El material se organiza en carpetas numeradas que se publican semana a semana a medida que avanza la cursada.
+ 
+ Cada carpeta corresponde a un bloque temático y contiene los notebooks (`.ipynb`) necesarios para trabajar en clase y fuera de ella.
+ 
+ ---
 
-Este repositorio contiene los notebooks de laboratorio de la materia. El material se organiza en carpetas numeradas que se publican semana a semana a medida que avanza la cursada.
-
-Cada carpeta corresponde a un bloque temático y contiene los notebooks (`.ipynb`) necesarios para trabajar en clase y fuera de ella.
-
----
-
-## Requisitos previos
+## 🛠️ Requisitos previos
 
 Antes de arrancar, asegurate de tener instalado en tu máquina:
 
@@ -33,110 +33,71 @@ Antes de arrancar, asegurate de tener instalado en tu máquina:
 
 ---
 
-## Setup inicial (una sola vez)
+## 🚀 Setup inicial
 
 Abrí una terminal (en Windows: PowerShell o Git Bash) y ejecutá los siguientes comandos:
 
-### 1. Clonar el repositorio
-
+### 1. Clonar el repositorio y entrar
 ```bash
 git clone https://github.com/mattbarreto/ifts24-lab-pln-2026.git
 cd ifts24-lab-pln-2026
 ```
 
-### 2. Crear el entorno virtual
+### Opción A (Recomendada): Manual paso a paso
 
-```bash
-python -m venv .venv
-```
+Este es el método estándar para aprender cómo se gestiona un entorno de Python:
 
-### 3. Activar el entorno virtual
+1. **Crear el entorno virtual**
+   ```bash
+   python -m venv .venv
+   ```
 
-**Windows (PowerShell):**
-```powershell
-.venv\Scripts\Activate.ps1
-```
+2. **Activar el entorno virtual**
+   - **Windows:** `.venv\Scripts\Activate.ps1` (PowerShell) o `.venv\Scripts\activate` (CMD/Bash)
+   - **macOS / Linux:** `source .venv/bin/activate`
 
-**Windows (Git Bash / CMD):**
-```bash
-.venv\Scripts\activate
-```
+3. **Instalar dependencias y recursos**
+   ```bash
+   pip install -r requirements.txt
+   playwright install
+   python -c "import nltk; nltk.download('stopwords'); nltk.download('punkt_tab')"
+   ```
 
-**macOS / Linux:**
-```bash
-source .venv/bin/activate
-```
+### Opción B: Instalación Automatizada (Avanzado)
 
-Si PowerShell muestra un error de permisos, ejecutá primero (solo una vez en tu usuario):
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-
-Cuando el entorno esté activo, verás `(.venv)` al principio de la línea de la terminal.
-
-### 4. Instalar las dependencias de Python
-
-```bash
-pip install -r requirements.txt
-```
-
-`requirements.txt` instala solo dependencias de Python. Si vas a trabajar con notebooks de audio/video, necesitás además `ffmpeg` y `ffprobe` a nivel sistema.
-
-### 4.1. Instalar FFmpeg si vas a trabajar con audio/video
-
-**Windows:**
-```powershell
-winget install Gyan.FFmpeg
-```
-
-**Ubuntu/Debian:**
-```bash
-sudo apt install ffmpeg
-```
-
-**macOS:**
-```bash
-brew install ffmpeg
-```
-
-Después de instalar FFmpeg, cerrá y volvé a abrir la terminal o Jupyter para que tome el nuevo `PATH`.
-
-Si ya tenés FFmpeg instalado pero Jupyter no lo detecta, podés iniciar la sesión definiendo `FFMPEG_PATH` con la ruta completa al ejecutable.
-
-**Windows (PowerShell):**
-```powershell
-where.exe ffmpeg
-$env:FFMPEG_PATH = "C:\ruta\completa\ffmpeg.exe"
-jupyter lab
-```
-
-Copiá la ruta completa de `ffmpeg.exe` que devuelve `where.exe ffmpeg` y usala en `FFMPEG_PATH`. Si aparecen varias rutas, usá la primera. Esto solo aplica a la sesión actual de PowerShell y no modifica el `PATH` del sistema.
-
-### 5. Instalar Playwright (navegadores para web scraping)
-
-```bash
-playwright install
-```
-
-### 6. Instalar componentes de Scrapling
-
-```bash
-pip scrapling install
-```
-
-### 7. Descargar recursos de NLTK
-
-Abrí Python e ingresá:
-
-```python
-import nltk
-nltk.download('stopwords')
-nltk.download('punkt_tab')
-```
+Si ya sabés cómo funcionan los entornos virtuales, podés usar los scripts incluidos:
+- **Windows:** `.\setup.ps1`
+- **macOS / Linux:** `./setup.sh`
 
 ---
 
-## Cómo actualizar cada semana
+## ☁️ Alternativa: Google Colab
+
+Si tenés problemas técnicos con tu computadora local, podés usar Google Colab. 
+1. Subí el archivo `.ipynb` a [colab.research.google.com](https://colab.research.google.com).
+2. Al principio de cada notebook, deberás instalar las dependencias manualmente agregando una celda:
+```bash
+!pip install nltk spacy beautifulsoup4 playwright
+!playwright install
+```
+**Nota:** Algunas funciones que requieren `FFmpeg` local o navegadores específicos pueden comportarse distinto en Colab.
+
+---
+
+## 🎬 Configuración de FFmpeg (Audio/Video)
+
+Si vas a trabajar con audio (Whisper, transcripciones), necesitás FFmpeg instalado en el sistema:
+
+- **Windows:** `winget install Gyan.FFmpeg`
+- **Ubuntu/Debian:** `sudo apt install ffmpeg`
+- **macOS:** `brew install ffmpeg`
+
+> [!TIP]
+> Si Jupyter no detecta FFmpeg a pesar de haberlo instalado, consultá la sección de **Resolución de problemas** al final.
+
+---
+
+## 🔄 Cómo actualizar cada semana
 
 Cada vez que se publique material nuevo, desde la carpeta del repositorio ejecutá:
 
@@ -158,7 +119,7 @@ ffmpeg -version
 
 ---
 
-## Estructura del repositorio
+## 📂 Estructura del repositorio
 
 ```text
 ifts24-lab-pln-2026/
@@ -175,7 +136,7 @@ ifts24-lab-pln-2026/
 
 ---
 
-## Resolución de problemas frecuentes
+## 🛠️ Resolución de problemas frecuentes
 
 **"python no se reconoce como comando"**
 Python no se agregó al PATH durante la instalación. Reinstalá marcando "Add Python to PATH", o usá `python3` en lugar de `python`.
@@ -189,12 +150,21 @@ Ejecutá: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 **Playwright no funciona / no encuentra navegador**
 Ejecutá `playwright install` con el entorno activado.
 
-**`ffmpeg` / `ffprobe` no se reconoce o aparece `FileNotFoundError` en notebooks de audio**
-Instalá FFmpeg a nivel sistema (`winget install Gyan.FFmpeg`, `choco install ffmpeg`, `sudo apt install ffmpeg` o `brew install ffmpeg`) y reiniciá la terminal o Jupyter para que se actualice el `PATH`. Si ya está instalado pero el notebook no lo detecta, iniciá Jupyter con `FFMPEG_PATH` definido.
+**FFmpeg no se detecta (Configuración de ruta manual)**
+Si ya lo instalaste pero aparece `FileNotFoundError`, podés indicarle la ruta manualmente antes de abrir Jupyter:
+
+- **Windows (PowerShell):**
+  ```powershell
+  $env:FFMPEG_PATH = (where.exe ffmpeg)[0]; jupyter lab
+  ```
+- **macOS / Linux:**
+  ```bash
+  export FFMPEG_PATH=$(which ffmpeg); jupyter lab
+  ```
 
 ---
 
-## Licencia
+## 📜 Licencia
 
 Este material se distribuye bajo licencia [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es):
 podés usarlo y adaptarlo con atribución, sin fines comerciales, y compartiendo bajo la misma licencia.
