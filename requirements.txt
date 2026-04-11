@@ -27,6 +27,7 @@ faster-whisper
 torch
 torchaudio
 transformers
+accelerate
 
 # NOTA: `ffmpeg` y `ffprobe` se instalan a nivel sistema, no con `pip`.
 # Windows: winget install Gyan.FFmpeg
@@ -36,6 +37,8 @@ transformers
 # --- PLN ---
 nltk
 spacy
+stanza
+spacy-stanza
 
 # --- Visualización ---
 matplotlib
