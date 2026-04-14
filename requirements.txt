@@ -12,6 +12,7 @@ watermark
 # --- Análisis de datos ---
 pandas
 numpy
+scikit-learn
 
 # --- Web scraping ---
 requests
