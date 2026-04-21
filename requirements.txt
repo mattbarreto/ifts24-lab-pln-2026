@@ -38,8 +38,12 @@ accelerate
 # --- PLN ---
 nltk
 spacy
-# Nota: el cuaderno integrador usa el modelo `es_core_news_sm`.
-# Instalación del modelo: `python -m spacy download es_core_news_sm`
+# Nota: los cuadernos de spaCy (003) y el lab integrador (006) usan `es_core_news_sm`.
+# Instalación: `python -m spacy download es_core_news_sm`
+#
+# El cuaderno 008 (representaciones semánticas) requiere el modelo mediano,
+# que incluye vectores de palabras pre-entrenados (el modelo sm NO los tiene).
+# Instalación: `python -m spacy download es_core_news_md`
 stanza
 spacy-stanza
 
