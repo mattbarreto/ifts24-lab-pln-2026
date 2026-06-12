@@ -5,6 +5,8 @@ Laboratorio de Procesamiento del Lenguaje Natural · Matías Barreto, 2026
 
 Colección de notebooks sobre el uso de APIs de modelos de lenguaje grandes (OpenAI, Gemini), configuración y despliegue de LLMs locales con Ollama, extracción estructurada con Pydantic orientada a humanidades digitales, procesamiento de documentos, bases de datos vectoriales con ChromaDB y desarrollo de sistemas RAG (Retrieval-Augmented Generation) completos integrando LangChain.
 
+![Arquitectura de un sistema RAG](sistema_rag.svg)
+
 ---
 
 ## Contenido
